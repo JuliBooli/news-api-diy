@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import './style.css'
+import News from "./news.tsx";
 
 function Api() {
 
     const [keyWord, setKeyWord] = useState("bitcoin");
     const [key, setKey] = useState(localStorage.getItem("keyItem") || " ");
+    const [newsData, setNewsData] = useState([]);
+
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = event.target.value;
@@ -20,8 +23,9 @@ function Api() {
         fetch(`https://newsapi.org/v2/everything?q=${keyWord}&apiKey=${key}`)
             .then((response) => response.json())
             .then((data) => {
+                setNewsData(data.articles);
                 console.log(data);
-                });
+            });
     }
 
     const handleSubmit = (event: React.FormEvent) => {
@@ -34,28 +38,32 @@ function Api() {
             <h1>Fetch API</h1>
             <div id="apiDiv">
                 <h2>API Key</h2>
-                <input id="apikey" value={key} onChange={handleInputChange} />
+                <input id="apikey" value={key} onChange={handleInputChange}/>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Please select your preferred keyword:</legend>
                         <div>
-                            <input type="radio" id="bitcoin" name="keyword" onChange={handleKeywordChange} defaultChecked={true} />
+                            <input type="radio" id="bitcoin" name="keyword" onChange={handleKeywordChange}
+                                   defaultChecked={true}/>
                             <label htmlFor="bitcoin">Bitcoin</label>
 
-                            <input type="radio" id="crypto" name="keyword" onChange={handleKeywordChange} />
+                            <input type="radio" id="crypto" name="keyword" onChange={handleKeywordChange}/>
                             <label htmlFor="crypto">Crypto</label>
 
-                            <input type="radio" id="loss" name="keyword" onChange={handleKeywordChange} />
+                            <input type="radio" id="loss" name="keyword" onChange={handleKeywordChange}/>
                             <label htmlFor="loss">Loss</label>
                         </div>
+                        <legend>Time Window of News</legend>
+
                         <div>
                             <button type="submit">Submit</button>
                         </div>
                     </fieldset>
                 </form>
             </div>
+            <News data={newsData}/>
         </>
     );
 }
