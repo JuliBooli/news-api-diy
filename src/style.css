@@ -4,13 +4,19 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -42,7 +48,16 @@ h1 {
   text-align: center;
 }
 
-.apiDiv{
+#apiDiv{
   display: flex;
   justify-content: center;
+  padding: 2em;
+}
+
+#apikey{
+  display: flex;
+  width: max-content;
+  padding: 2em;
+  margin-left: 2em;
+  border-radius: 15px;
 }
