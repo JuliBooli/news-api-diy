@@ -56,7 +56,7 @@ h1 {
 
 #apikey{
   display: flex;
-  width: max-content;
+  width: 20em;
   padding: 2em;
   margin-left: 2em;
   border-radius: 15px;
