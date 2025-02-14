@@ -15,7 +15,7 @@ interface NewsProps {
 
 const News: React.FC<NewsProps> = ({ data = [] }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const articlesPerPage = 20;
+    const articlesPerPage = 10;
     const [totalPages, setTotalPages] = useState(0);
     console.log(data);
 

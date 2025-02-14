@@ -10,7 +10,7 @@ if (rootElement) {
     root.render(
         <React.StrictMode>
             <Api />
-            <News/>
+            <News />
         </React.StrictMode>
     );
 }
