@@ -17,6 +17,10 @@ function Api() {
         setKeyWord(event.target.id);
     };
 
+    const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setKeyWord(event.target.value);
+    };
+
     const fetchData = () => {
         fetch(`https://newsapi.org/v2/everything?q=${keyWord}&apiKey=${key}`)
             .then((response) => response.json())
@@ -32,10 +36,13 @@ function Api() {
 
     return (
         <>
-            <h1>Fetch API</h1>
+            <header className="title">
+                <h1>Fetch API</h1>
+            </header>
             <div id="apiDiv">
                 <h2>API Key</h2>
                 <input id="apikey" value={key} onChange={handleInputChange} />
+                <a href={"https://newsapi.org/"}>Get your API Key here</a>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
@@ -50,6 +57,10 @@ function Api() {
 
                             <input type="radio" id="loss" name="keyword" onChange={handleKeywordChange} />
                             <label htmlFor="loss">Loss</label>
+                            <div>
+                                <input type="text" id="text-input" name="keyword" onChange={inputHandler} />
+                                <label htmlFor="text-input">Custom</label>
+                            </div>
                         </div>
                         <div>
                             <button type="submit">Submit</button>
