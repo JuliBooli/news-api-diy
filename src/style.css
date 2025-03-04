@@ -12,6 +12,13 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+}
+
 h1, h2 {
     -webkit-user-select: none;
     -moz-user-select: none;

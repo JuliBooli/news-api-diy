@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import './style.css';
 import News from "./news.tsx";
 
@@ -37,28 +37,42 @@ function Api() {
     return (
         <>
             <header className="title">
-                <h1>Fetch API</h1>
+                <h3>News API Example</h3>
             </header>
-            <div id="apiDiv">
-                <h2>API Key</h2>
-                <input id="apikey" value={key} onChange={handleInputChange} />
-                <a href={"https://newsapi.org/"}>Get your API Key here</a>
+            <div>
+                <div id="apiDiv">
+                    <h2>API Key</h2>
+                    <input id="apikey" value={key} onChange={handleInputChange}/>
+
+                </div>
+                <div id={"linkDiv"}>
+                    <a href={"https://newsapi.org/"}>Get your API Key here</a>
+                </div>
             </div>
+
             <div>
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Please select your preferred keyword:</legend>
                         <div>
-                            <input type="radio" id="bitcoin" name="keyword" onChange={handleKeywordChange} defaultChecked={true} />
+                            <input type="radio" id="bitcoin" name="keyword" onChange={handleKeywordChange}
+                                   defaultChecked={true}/>
                             <label htmlFor="bitcoin">Bitcoin</label>
 
-                            <input type="radio" id="crypto" name="keyword" onChange={handleKeywordChange} />
+                            <input type="radio" id="crypto" name="keyword" onChange={handleKeywordChange}/>
                             <label htmlFor="crypto">Crypto</label>
 
-                            <input type="radio" id="loss" name="keyword" onChange={handleKeywordChange} />
+                            <input type="radio" id="loss" name="keyword" onChange={handleKeywordChange}/>
                             <label htmlFor="loss">Loss</label>
+
+                            <input type="radio" id="ethereum" name="keyword" onChange={handleKeywordChange}/>
+                            <label htmlFor="ethereum">Ethereum</label>
+
+                            <input type="radio" id="xrp" name="xrp" onChange={handleKeywordChange}/>
+                            <label htmlFor="xrp">XRP</label>
+
                             <div>
-                                <input type="text" id="text-input" name="keyword" onChange={inputHandler} />
+                                <input type="text" id="text-input" name="keyword" onChange={inputHandler}/>
                                 <label htmlFor="text-input">Custom</label>
                             </div>
                         </div>
@@ -68,7 +82,7 @@ function Api() {
                     </fieldset>
                 </form>
             </div>
-            <News data={newsData} />
+            <News data={newsData}/>
         </>
     );
 }
