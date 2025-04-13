@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./style.css";
 
 interface NewsProps {
     data: Array<{
@@ -17,7 +18,6 @@ const News: React.FC<NewsProps> = ({ data = [] }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const articlesPerPage = 10;
     const [totalPages, setTotalPages] = useState(0);
-    console.log(data);
 
     useEffect(() => {
         if (data.length !== 0) {

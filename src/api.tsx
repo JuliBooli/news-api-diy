@@ -28,7 +28,7 @@ function Api() {
                 setNewsData(data.articles);
             });
     };
-
+    
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         fetchData();
@@ -39,7 +39,7 @@ function Api() {
             <header className="title">
                 <h3>News API Example</h3>
             </header>
-            <div>
+            <div id="apiBlock">
                 <div id="apiDiv">
                     <h2>API Key</h2>
                     <input id="apikey" value={key} onChange={handleInputChange}/>
